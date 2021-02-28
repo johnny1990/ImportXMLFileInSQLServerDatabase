@@ -61,19 +61,22 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Service1.svc" />
+    <Content Include="App_Data\XMLinSQL.mdf" />
+    <Content Include="App_Data\XMLinSQL_log.ldf">
+      <DependentUpon>XMLinSQL.mdf</DependentUpon>
+    </Content>
+    <Content Include="CrudXMLService.svc" />
     <Content Include="Web.config" />
+    <Content Include="XML\Customers.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Service1.svc.cs">
-      <DependentUpon>Service1.svc</DependentUpon>
+    <Compile Include="CrudXMLService.svc.cs">
+      <DependentUpon>CrudXMLService.svc</DependentUpon>
     </Compile>
-    <Compile Include="IService1.cs" />
+    <Compile Include="ICrudXMLService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
