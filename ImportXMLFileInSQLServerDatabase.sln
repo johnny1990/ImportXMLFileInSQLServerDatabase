@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFService", "WCFService\WCFService.csproj", "{5F021722-C60A-4FF2-8882-4D1BF598736B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp", "WindowsFormsApp\WindowsFormsApp.csproj", "{DD9BC349-8CB1-48AF-8A04-54EDB7F424D8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5F021722-C60A-4FF2-8882-4D1BF598736B} = {5F021722-C60A-4FF2-8882-4D1BF598736B}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
