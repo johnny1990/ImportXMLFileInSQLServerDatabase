@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -14,6 +15,19 @@ namespace WCFService
         [OperationContract]
         void InsertUserDetails();
 
-        //
+        [OperationContract]
+        CustomerData GetUserDetails();
+    }
+
+    [DataContract]
+    public class CustomerData
+    {
+        public CustomerData()
+        {
+            this.CustomersTable = new DataTable("CustomersData");
+        }
+
+        [DataMember]
+        public DataTable CustomersTable { get; set; }
     }
 }

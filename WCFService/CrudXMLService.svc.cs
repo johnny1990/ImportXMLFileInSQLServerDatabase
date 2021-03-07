@@ -36,6 +36,27 @@ namespace WCFService
             }
         }
 
-        ///
+        public CustomerData GetUserDetails()
+        {
+            string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlCommand cmd = new SqlCommand("SelectAll",con))
+                {
+                    using (SqlDataAdapter sda = new SqlDataAdapter())
+                    {
+                        cmd.Connection = con;
+                        sda.SelectCommand = cmd;
+                        using (DataTable dt = new DataTable())
+                        {
+                            CustomerData customers = new CustomerData();
+                            sda.Fill(customers.CustomersTable);
+                            return customers;
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }

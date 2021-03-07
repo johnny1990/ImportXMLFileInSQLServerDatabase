@@ -9,7 +9,54 @@
 //------------------------------------------------------------------------------
 
 namespace WindowsFormsApp.CrudXMLServiceReference {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CustomerData", Namespace="http://schemas.datacontract.org/2004/07/WCFService")]
+    [System.SerializableAttribute()]
+    public partial class CustomerData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Data.DataTable CustomersTableField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Data.DataTable CustomersTable {
+            get {
+                return this.CustomersTableField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CustomersTableField, value) != true)) {
+                    this.CustomersTableField = value;
+                    this.RaisePropertyChanged("CustomersTable");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CrudXMLServiceReference.ICrudXMLService")]
@@ -20,6 +67,12 @@ namespace WindowsFormsApp.CrudXMLServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrudXMLService/InsertUserDetails", ReplyAction="http://tempuri.org/ICrudXMLService/InsertUserDetailsResponse")]
         System.Threading.Tasks.Task InsertUserDetailsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrudXMLService/GetUserDetails", ReplyAction="http://tempuri.org/ICrudXMLService/GetUserDetailsResponse")]
+        WindowsFormsApp.CrudXMLServiceReference.CustomerData GetUserDetails();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrudXMLService/GetUserDetails", ReplyAction="http://tempuri.org/ICrudXMLService/GetUserDetailsResponse")]
+        System.Threading.Tasks.Task<WindowsFormsApp.CrudXMLServiceReference.CustomerData> GetUserDetailsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,6 +108,14 @@ namespace WindowsFormsApp.CrudXMLServiceReference {
         
         public System.Threading.Tasks.Task InsertUserDetailsAsync() {
             return base.Channel.InsertUserDetailsAsync();
+        }
+        
+        public WindowsFormsApp.CrudXMLServiceReference.CustomerData GetUserDetails() {
+            return base.Channel.GetUserDetails();
+        }
+        
+        public System.Threading.Tasks.Task<WindowsFormsApp.CrudXMLServiceReference.CustomerData> GetUserDetailsAsync() {
+            return base.Channel.GetUserDetailsAsync();
         }
     }
 }

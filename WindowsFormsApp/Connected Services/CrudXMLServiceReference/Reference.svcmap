@@ -22,9 +22,12 @@
     <MetadataSource Address="http://localhost:60752/CrudXMLService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="CrudXMLService.disco" MetadataType="Disco" ID="4e579b26-4884-415f-a923-897409c35e24" SourceId="1" SourceUrl="http://localhost:60752/CrudXMLService.svc?disco" />
     <MetadataFile FileName="CrudXMLService.wsdl" MetadataType="Wsdl" ID="60960b12-eb04-4c68-853c-e87d84ee5974" SourceId="1" SourceUrl="http://localhost:60752/CrudXMLService.svc?wsdl" />
+    <MetadataFile FileName="CrudXMLService.disco" MetadataType="Disco" ID="4e579b26-4884-415f-a923-897409c35e24" SourceId="1" SourceUrl="http://localhost:60752/CrudXMLService.svc?disco" />
+    <MetadataFile FileName="CrudXMLService11.xsd" MetadataType="Schema" ID="1f542783-2b79-4c02-a7c5-9767253c0e17" SourceId="1" SourceUrl="http://localhost:60752/CrudXMLService.svc?xsd=xsd2" />
+    <MetadataFile FileName="CrudXMLService2.xsd" MetadataType="Schema" ID="d811bc1b-7bc9-489e-9a35-424041b7297b" SourceId="1" SourceUrl="http://localhost:60752/CrudXMLService.svc?xsd=xsd3" />
     <MetadataFile FileName="CrudXMLService.xsd" MetadataType="Schema" ID="875277d4-94fa-407d-af65-4bb0627dcd71" SourceId="1" SourceUrl="http://localhost:60752/CrudXMLService.svc?xsd=xsd0" />
+    <MetadataFile FileName="CrudXMLService1.xsd" MetadataType="Schema" ID="8eebcdd7-ea4c-4b86-8025-685058b0fb9f" SourceId="1" SourceUrl="http://localhost:60752/CrudXMLService.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
