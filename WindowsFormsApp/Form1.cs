@@ -48,6 +48,24 @@ namespace WindowsFormsApp
             }
         }
 
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                //DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                //int customerId = Convert.ToInt32(dataGridView1.DataKeys[e.RowIndex].Values[0]);
+                //string name = (row.FindControl("txtName") as TextBox).Text;
+                //string country = (row.FindControl("txtCountry") as TextBox).Text;
+                //CrudXMLServiceReference.CrudXMLServiceClient client = new CrudXMLServiceReference.CrudXMLServiceClient();
+                //client.Update(customerId, name, country);
+                //dataGridView1.EditIndex = -1;
+                //client.GetUserDetails().CustomersTable;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
 
+            }
+        }
     }
 }

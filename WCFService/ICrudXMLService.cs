@@ -17,6 +17,9 @@ namespace WCFService
 
         [OperationContract]
         CustomerData GetUserDetails();
+
+        [OperationContract]
+        void Update(int customerId, string name, string country);
     }
 
     [DataContract]

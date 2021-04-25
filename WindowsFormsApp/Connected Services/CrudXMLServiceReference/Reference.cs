@@ -73,6 +73,12 @@ namespace WindowsFormsApp.CrudXMLServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrudXMLService/GetUserDetails", ReplyAction="http://tempuri.org/ICrudXMLService/GetUserDetailsResponse")]
         System.Threading.Tasks.Task<WindowsFormsApp.CrudXMLServiceReference.CustomerData> GetUserDetailsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrudXMLService/Update", ReplyAction="http://tempuri.org/ICrudXMLService/UpdateResponse")]
+        void Update(int customerId, string name, string country);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrudXMLService/Update", ReplyAction="http://tempuri.org/ICrudXMLService/UpdateResponse")]
+        System.Threading.Tasks.Task UpdateAsync(int customerId, string name, string country);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -116,6 +122,14 @@ namespace WindowsFormsApp.CrudXMLServiceReference {
         
         public System.Threading.Tasks.Task<WindowsFormsApp.CrudXMLServiceReference.CustomerData> GetUserDetailsAsync() {
             return base.Channel.GetUserDetailsAsync();
+        }
+        
+        public void Update(int customerId, string name, string country) {
+            base.Channel.Update(customerId, name, country);
+        }
+        
+        public System.Threading.Tasks.Task UpdateAsync(int customerId, string name, string country) {
+            return base.Channel.UpdateAsync(customerId, name, country);
         }
     }
 }

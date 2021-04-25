@@ -58,5 +58,24 @@ namespace WCFService
             }
         }
 
+        public void Update(int customerId, string name, string country)
+        {
+            string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlCommand cmd = new SqlCommand("UpdateCustomer",con))
+                {
+                    cmd.Parameters.AddWithValue("@CustomerId", customerId);
+                    cmd.Parameters.AddWithValue("@Name", name);
+                    cmd.Parameters.AddWithValue("@Country", country);
+                    cmd.Connection = con;
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+        }
+
+
     }
 }
