@@ -63,8 +63,10 @@ namespace WCFService
             string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
             using (SqlConnection con = new SqlConnection(constr))
             {
-                using (SqlCommand cmd = new SqlCommand("UpdateCustomer",con))
+                using (SqlCommand cmd = new SqlCommand("UpdateCustomer"))
                 {
+                    cmd.Connection = con;
+                    cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@CustomerId", customerId);
                     cmd.Parameters.AddWithValue("@Name", name);
                     cmd.Parameters.AddWithValue("@Country", country);

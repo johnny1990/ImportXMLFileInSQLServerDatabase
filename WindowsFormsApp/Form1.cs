@@ -48,24 +48,32 @@ namespace WindowsFormsApp
             }
         }
 
-        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
+            if (dataGridView1.CurrentRow.Index != -1)
             {
-                //DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-                //int customerId = Convert.ToInt32(dataGridView1.DataKeys[e.RowIndex].Values[0]);
-                //string name = (row.FindControl("txtName") as TextBox).Text;
-                //string country = (row.FindControl("txtCountry") as TextBox).Text;
-                //CrudXMLServiceReference.CrudXMLServiceClient client = new CrudXMLServiceReference.CrudXMLServiceClient();
-                //client.Update(customerId, name, country);
-                //dataGridView1.EditIndex = -1;
-                //client.GetUserDetails().CustomersTable;
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
-
+                int customerId = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+                string name = dataGridView1.CurrentRow.Cells[1].Value.ToString(); 
+                string country = dataGridView1.CurrentRow.Cells[2].Value.ToString();
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int customerId = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+            string name = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            string country = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            if (customerId != 0)
+            {
+                       CrudXMLServiceReference.CrudXMLServiceClient client = new CrudXMLServiceReference.CrudXMLServiceClient();
+                       client.Update(customerId, name, country);
+            }
+            else
+            {
+                MessageBox.Show("error");
+            }
+        }
+
+        
     }
 }
