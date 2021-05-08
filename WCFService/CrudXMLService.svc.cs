@@ -78,6 +78,20 @@ namespace WCFService
             }
         }
 
-
+        public void Delete(int customerId)
+        {
+            string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlCommand cmd = new SqlCommand("DELETE FROM Customers WHERE CustomerId = @CustomerId"))
+                {
+                    cmd.Parameters.AddWithValue("@CustomerId", customerId);
+                    cmd.Connection = con;
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+        }
     }
 }

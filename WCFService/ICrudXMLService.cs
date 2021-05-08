@@ -20,6 +20,9 @@ namespace WCFService
 
         [OperationContract]
         void Update(int customerId, string name, string country);
+ 
+        [OperationContract]
+        void Delete(int customerId);
     }
 
     [DataContract]
