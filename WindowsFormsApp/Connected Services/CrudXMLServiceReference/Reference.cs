@@ -74,11 +74,17 @@ namespace WindowsFormsApp.CrudXMLServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrudXMLService/GetUserDetails", ReplyAction="http://tempuri.org/ICrudXMLService/GetUserDetailsResponse")]
         System.Threading.Tasks.Task<WindowsFormsApp.CrudXMLServiceReference.CustomerData> GetUserDetailsAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrudXMLService/Update", ReplyAction="http://tempuri.org/ICrudXMLService/UpdateResponse")]
-        void Update(int customerId, string name, string country);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrudXMLService/UpdateCustomer", ReplyAction="http://tempuri.org/ICrudXMLService/UpdateCustomerResponse")]
+        void UpdateCustomer(int customerId, string name, string country);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrudXMLService/Update", ReplyAction="http://tempuri.org/ICrudXMLService/UpdateResponse")]
-        System.Threading.Tasks.Task UpdateAsync(int customerId, string name, string country);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrudXMLService/UpdateCustomer", ReplyAction="http://tempuri.org/ICrudXMLService/UpdateCustomerResponse")]
+        System.Threading.Tasks.Task UpdateCustomerAsync(int customerId, string name, string country);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrudXMLService/DeleteCustomer", ReplyAction="http://tempuri.org/ICrudXMLService/DeleteCustomerResponse")]
+        void DeleteCustomer(int customerId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrudXMLService/DeleteCustomer", ReplyAction="http://tempuri.org/ICrudXMLService/DeleteCustomerResponse")]
+        System.Threading.Tasks.Task DeleteCustomerAsync(int customerId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -124,12 +130,20 @@ namespace WindowsFormsApp.CrudXMLServiceReference {
             return base.Channel.GetUserDetailsAsync();
         }
         
-        public void Update(int customerId, string name, string country) {
-            base.Channel.Update(customerId, name, country);
+        public void UpdateCustomer(int customerId, string name, string country) {
+            base.Channel.UpdateCustomer(customerId, name, country);
         }
         
-        public System.Threading.Tasks.Task UpdateAsync(int customerId, string name, string country) {
-            return base.Channel.UpdateAsync(customerId, name, country);
+        public System.Threading.Tasks.Task UpdateCustomerAsync(int customerId, string name, string country) {
+            return base.Channel.UpdateCustomerAsync(customerId, name, country);
+        }
+        
+        public void DeleteCustomer(int customerId) {
+            base.Channel.DeleteCustomer(customerId);
+        }
+        
+        public System.Threading.Tasks.Task DeleteCustomerAsync(int customerId) {
+            return base.Channel.DeleteCustomerAsync(customerId);
         }
     }
 }

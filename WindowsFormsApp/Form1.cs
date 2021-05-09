@@ -66,7 +66,7 @@ namespace WindowsFormsApp
             if (customerId != 0)
             {
                        CrudXMLServiceReference.CrudXMLServiceClient client = new CrudXMLServiceReference.CrudXMLServiceClient();
-                       client.Update(customerId, name, country);
+                       client.UpdateCustomer(customerId, name, country);
             }
             else
             {
@@ -74,6 +74,20 @@ namespace WindowsFormsApp
             }
         }
 
-        
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to delete this customer?", "Please Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+
+                int customerId = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+                if (customerId != 0)
+                {
+                    CrudXMLServiceReference.CrudXMLServiceClient client = new CrudXMLServiceReference.CrudXMLServiceClient();
+                    client.DeleteCustomer(customerId);
+                }
+
+
+            }
+        }
     }
 }

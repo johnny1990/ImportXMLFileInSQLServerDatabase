@@ -19,10 +19,10 @@ namespace WCFService
         CustomerData GetUserDetails();
 
         [OperationContract]
-        void Update(int customerId, string name, string country);
+        void UpdateCustomer(int customerId, string name, string country);
  
         [OperationContract]
-        void Delete(int customerId);
+        void DeleteCustomer(int customerId);
     }
 
     [DataContract]

@@ -58,7 +58,7 @@ namespace WCFService
             }
         }
 
-        public void Update(int customerId, string name, string country)
+        public void UpdateCustomer(int customerId, string name, string country)
         {
             string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
             using (SqlConnection con = new SqlConnection(constr))
@@ -78,13 +78,15 @@ namespace WCFService
             }
         }
 
-        public void Delete(int customerId)
+        public void DeleteCustomer(int customerId)
         {
             string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
             using (SqlConnection con = new SqlConnection(constr))
             {
-                using (SqlCommand cmd = new SqlCommand("DELETE FROM Customers WHERE CustomerId = @CustomerId"))
+                using (SqlCommand cmd = new SqlCommand("DeleteCustomer"))
                 {
+                    cmd.Connection = con;
+                    cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@CustomerId", customerId);
                     cmd.Connection = con;
                     con.Open();

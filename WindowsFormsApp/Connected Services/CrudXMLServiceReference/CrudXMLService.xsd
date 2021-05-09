@@ -23,7 +23,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Update">
+  <xs:element name="UpdateCustomer">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="customerId" type="xs:int" />
@@ -32,7 +32,19 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="UpdateResponse">
+  <xs:element name="UpdateCustomerResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteCustomer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteCustomerResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

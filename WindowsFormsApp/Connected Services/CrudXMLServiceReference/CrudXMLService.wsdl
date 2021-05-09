@@ -20,11 +20,17 @@
   <wsdl:message name="ICrudXMLService_GetUserDetails_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetUserDetailsResponse" />
   </wsdl:message>
-  <wsdl:message name="ICrudXMLService_Update_InputMessage">
-    <wsdl:part name="parameters" element="tns:Update" />
+  <wsdl:message name="ICrudXMLService_UpdateCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCustomer" />
   </wsdl:message>
-  <wsdl:message name="ICrudXMLService_Update_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  <wsdl:message name="ICrudXMLService_UpdateCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICrudXMLService_DeleteCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCustomer" />
+  </wsdl:message>
+  <wsdl:message name="ICrudXMLService_DeleteCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCustomerResponse" />
   </wsdl:message>
   <wsdl:portType name="ICrudXMLService">
     <wsdl:operation name="InsertUserDetails">
@@ -35,9 +41,13 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ICrudXMLService/GetUserDetails" message="tns:ICrudXMLService_GetUserDetails_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICrudXMLService/GetUserDetailsResponse" message="tns:ICrudXMLService_GetUserDetails_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Update">
-      <wsdl:input wsaw:Action="http://tempuri.org/ICrudXMLService/Update" message="tns:ICrudXMLService_Update_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ICrudXMLService/UpdateResponse" message="tns:ICrudXMLService_Update_OutputMessage" />
+    <wsdl:operation name="UpdateCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICrudXMLService/UpdateCustomer" message="tns:ICrudXMLService_UpdateCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICrudXMLService/UpdateCustomerResponse" message="tns:ICrudXMLService_UpdateCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICrudXMLService/DeleteCustomer" message="tns:ICrudXMLService_DeleteCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICrudXMLService/DeleteCustomerResponse" message="tns:ICrudXMLService_DeleteCustomer_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ICrudXMLService" type="tns:ICrudXMLService">
@@ -60,8 +70,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Update">
-      <soap:operation soapAction="http://tempuri.org/ICrudXMLService/Update" style="document" />
+    <wsdl:operation name="UpdateCustomer">
+      <soap:operation soapAction="http://tempuri.org/ICrudXMLService/UpdateCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustomer">
+      <soap:operation soapAction="http://tempuri.org/ICrudXMLService/DeleteCustomer" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
